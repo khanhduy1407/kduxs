@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:kdu-libs/recommended"
+  ],
+  "globals": {
+    "__DEV__": true,
+    "__KDU_PROD_DEVTOOLS__": true
+  }
+}

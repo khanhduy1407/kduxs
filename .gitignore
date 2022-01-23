@@ -1,0 +1,9 @@
+/dist
+/coverage
+/docs/.kdupress/dist
+/test/e2e/reports
+/test/e2e/screenshots
+*.log
+.DS_Store
+node_modules
+.idea

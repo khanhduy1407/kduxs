@@ -1,0 +1,5 @@
+# redirect old urls to root
+
+/en/api.html  /api/
+/en/intro.html /en/guide/
+/en/* /guide/:splat

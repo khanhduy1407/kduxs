@@ -1,0 +1,99 @@
+{
+  "name": "kduxs",
+  "version": "4.0.2",
+  "description": "state management for Kdu.js",
+  "main": "dist/kduxs.cjs.js",
+  "exports": {
+    ".": {
+      "module": "./dist/kduxs.esm-bundler.js",
+      "require": "./dist/kduxs.cjs.js",
+      "import": "./dist/kduxs.mjs"
+    },
+    "./": "./"
+  },
+  "module": "dist/kduxs.esm-bundler.js",
+  "browser": "dist/kduxs.esm-browser.js",
+  "unpkg": "dist/kduxs.global.js",
+  "jsdelivr": "dist/kduxs.global.js",
+  "typings": "types/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "types/index.d.ts",
+    "types/helpers.d.ts",
+    "types/logger.d.ts",
+      "types/kdu.d.ts"
+  ],
+  "scripts": {
+    "dev": "node examples/server.js",
+    "build": "node scripts/build.js",
+    "lint": "eslint src test",
+    "test": "npm run lint && npm run build && npm run test:types && npm run test:unit && npm run test:ssr && npm run test:e2e && npm run test:esm",
+    "test:unit": "jest --testPathIgnorePatterns test/e2e",
+    "test:e2e": "start-server-and-test dev http://localhost:8080 \"jest --testPathIgnorePatterns test/unit\"",
+    "test:ssr": "cross-env KDU_ENV=server jest --testPathIgnorePatterns test/e2e",
+    "test:types": "tsc -p types/test",
+    "test:esm": "node test/esm/esm-test.js",
+    "coverage": "jest --testPathIgnorePatterns test/e2e --coverage",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release": "node scripts/release.js",
+    "docs": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "yarn docs:build && vitepress serve docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khanhduy1407/kdux.git"
+  },
+  "author": "NKDuy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khanhduy1407/kdux/issues"
+  },
+  "homepage": "https://github.com/khanhduy1407/kdux",
+  "peerDependencies": {
+    "kdu": "^3.0.11"
+  },
+  "dependencies": {
+    "@nkduy/devtools-api": "^6.0.0-beta.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-replace": "^2.4.2",
+    "@types/node": "^15.6.0",
+    "@nkduy/compiler-sfc": "^3.0.11",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "brotli": "^1.3.2",
+    "chalk": "^4.1.1",
+    "conventional-changelog-cli": "^2.1.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^2.1.0",
+    "enquirer": "^2.3.5",
+    "eslint": "^7.27.0",
+    "eslint-plugin-kdu-libs": "^4.0.0",
+    "execa": "^5.0.0",
+    "express": "^4.17.1",
+    "fs-extra": "^10.0.0",
+    "jest": "^26.6.3",
+    "puppeteer": "^9.1.1",
+    "regenerator-runtime": "^0.13.5",
+    "rollup": "^2.49.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "semver": "^7.3.5",
+    "start-server-and-test": "^1.12.3",
+    "todomvc-app-css": "^2.4.1",
+    "typescript": "^4.2.4",
+    "kduvite": "^0.11.5",
+    "kdu": "^3.0.11",
+    "kdu-loader": "^13.5.0",
+    "kdu-style-loader": "^3.0.0",
+    "webpack": "^4.43.0",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0"
+  }
+}
